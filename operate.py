@@ -4228,6 +4228,7 @@ async def naive_query(
                 .strip()
             )
 
+        
         return QueryResult(content=response, raw_data=raw_data)
     else:
         # Streaming response (AsyncIterator)
