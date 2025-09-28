@@ -159,7 +159,60 @@ Based on the last extraction task, identify and extract any **missed or incorrec
 PROMPTS["entity_extraction_examples"] = [
     """<Input Text>
 ```
-{example_jira_data}
+[
+  {
+    "key": "TCAAS3883-501",
+    "priority_name": "High",
+    "assignee_displayName": "Romain CHARTIER",
+    "status_description": "À faire",
+    "creator_displayName": "Céline TRAN",
+    "reporter_displayName": "Céline TRAN",
+    "sprint_state": "active",
+    "project_key": "TCAAS3883",
+    "project_name": "3883-insightsbooster",
+    "description": "Corriger le bug d'affichage du menu latéral qui disparaît lors du redimensionnement de la fenêtre.",
+    "summary": "[BUG] Menu latéral disparaît au resize"
+  },
+  {
+    "key": "TCAAS3883-502",
+    "priority_name": "Medium",
+    "assignee_displayName": "Laura ZIV",
+    "status_description": "En cours",
+    "creator_displayName": "Valentin TRAN",
+    "reporter_displayName": "Laura ZIV",
+    "sprint_state": "active",
+    "project_key": "TCAAS3883",
+    "project_name": "3883-insightsbooster",
+    "description": "Développer la nouvelle fonctionnalité de recherche avancée.",
+    "summary": "[DEV] Recherche avancée"
+  },
+  {
+    "key": "TCAAS3883-506",
+    "priority_name": "High",
+    "assignee_displayName": "Amani RAGHBA",
+    "status_description": "En test",
+    "creator_displayName": "Céline TRAN",
+    "reporter_displayName": "Juliette TRAN",
+    "sprint_state": "active",
+    "project_key": "TCAAS3883",
+    "project_name": "3883-insightsbooster",
+    "description": "Implémenter la fonctionnalité d'export CSV dans l'écran de suivi des anomalies.",
+    "summary": "[DEV] Export CSV suivi anomalies"
+  },
+  {
+    "key": "TCAAS3883-507",
+    "priority_name": "Low",
+    "assignee_displayName": "Robert MILLER",
+    "status_description": "Terminé",
+    "creator_displayName": "Selim B.",
+    "reporter_displayName": "Robert MILLER",
+    "sprint_state": "backlog",
+    "project_key": "TCAAS3883",
+    "project_name": "3883-insightsbooster",
+    "description": "Nettoyer le code legacy et optimiser les performances.",
+    "summary": "[TASK] Nettoyage code legacy"
+  }
+]
 ```
 
 <Output>
