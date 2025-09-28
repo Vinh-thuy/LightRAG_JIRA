@@ -888,9 +888,10 @@ async def _process_extraction_result(
         ["\n", completion_delimiter, completion_delimiter.lower()],
     )
 
-    print("\n\n")
-    print(records)
-    print("\n\n")
+    print("=== DEBUG operate.py - _process_extraction_result ===")
+    print(f"Input records: {len(records) if records else 0} items")
+    print(f"First record sample: {records[0] if records else 'None'}")
+    print("=== FIN DEBUG ===")
     # Fix LLM output format error which use tuple_delimiter to seperate record instead of "\n"
     fixed_records = []
     for record in records:
@@ -2053,6 +2054,12 @@ async def extract_entities(
 
     processed_chunks = 0
     total_chunks = len(ordered_chunks)
+    
+    print("=== DEBUG operate.py - extract_entities ===")
+    print(f"Total chunks to process: {total_chunks}")
+    print(f"Entity types: {entity_types}")
+    print(f"Language: {language}")
+    print("=== FIN DEBUG ===")
 
     async def _process_single_content(chunk_key_dp: tuple[str, TextChunkSchema]):
         """Process a single chunk
@@ -4228,7 +4235,6 @@ async def naive_query(
                 .strip()
             )
 
-        
         return QueryResult(content=response, raw_data=raw_data)
     else:
         # Streaming response (AsyncIterator)
