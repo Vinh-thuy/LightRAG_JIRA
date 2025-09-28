@@ -888,6 +888,9 @@ async def _process_extraction_result(
         ["\n", completion_delimiter, completion_delimiter.lower()],
     )
 
+    print("\n\n")
+    print(records)
+    print("\n\n")
     # Fix LLM output format error which use tuple_delimiter to seperate record instead of "\n"
     fixed_records = []
     for record in records:
@@ -2032,10 +2035,13 @@ async def extract_entities(
         completion_delimiter=PROMPTS["DEFAULT_COMPLETION_DELIMITER"],
         entity_types=", ".join(entity_types),
         language=language,
-        example_jira_data=PROMPTS["example_jira_data"],
     )
-    # add example's format
-    examples = examples.format(**example_context_base)
+    # add example's format - skip format for example_jira_data as it's already included
+    try:
+        examples = examples.format(**example_context_base)
+    except KeyError:
+        # Handle case where example_jira_data is referenced but not available
+        examples = examples
 
     context_base = dict(
         tuple_delimiter=PROMPTS["DEFAULT_TUPLE_DELIMITER"],
